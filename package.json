@@ -1,0 +1,23 @@
+{
+  "name": "webpack-kit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run watch",
+    "watch": "webpack --watch",
+    "build": "webpack",
+    "production": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tnifey/webpack-kit.git"
+  },
+  "keywords": [],
+  "author": "Tnifey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tnifey/webpack-kit/issues"
+  },
+  "homepage": "https://github.com/tnifey/webpack-kit#readme"
+}
