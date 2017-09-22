@@ -3,6 +3,7 @@ const path = require('path');
 
 const HWP = require('html-webpack-plugin');
 const BSWP = require('browser-sync-webpack-plugin');
+const NIWP = require('npm-install-webpack-plugin');
 
 module.exports = {
 	/* entry point */
@@ -12,6 +13,8 @@ module.exports = {
 		path: path.resolve(__dirname, "dist"),
 		filename: "bundle.js",
 	},
+	/* target */
+	target: "web",
 
 	/* modules */
 	module: {
@@ -55,9 +58,25 @@ module.exports = {
 							minimize: true,
 							sourceMap: true,
 						}
-					}
+					},
 				]
-			}
+			},
+
+			/* sass loader | scss loader */
+			{
+				test: /\.(sass|scss)$/,
+				use: [
+					"style-loader",
+					{
+						loader: "css-loader",
+						options: {
+							minimize: true,
+							sourceMap: true,
+						}
+					},
+					"sass-loader"
+				]
+			},
 		]
 	},
 
@@ -73,7 +92,15 @@ module.exports = {
 			cache: false,
 			server: {
 				baseDir: "dist"
-			}
+			},
+			notify: false, // without notification bubble
+		}),
+
+		/* automatically installing & saving dependencies - npm install plugin */
+		new NIWP({
+			dev: false,
+			quiet: true,
+			peerDependencies: true,
 		}),
 
 
