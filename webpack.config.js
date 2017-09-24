@@ -15,7 +15,6 @@ module.exports = {
 	},
 	/* target */
 	target: "web",
-
 	/* modules */
 	module: {
 		/* loaders */
@@ -76,6 +75,12 @@ module.exports = {
 					},
 					"sass-loader"
 				]
+			},
+
+			/* raw text */
+			{
+				test: /\.(txt|raw)$/,
+				loader: "raw-loader",					
 			},
 		]
 	},
